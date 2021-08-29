@@ -35,7 +35,7 @@ Resources:
           FromPort: '80'
           ToPort: '80'
           CidrIp: '0.0.0.0/0'
-    MyEC2Intance:
+    FirstEC2Intance:
       Type: 'AWS::EC2::Instance'
       Properties:
         InstanceType: "t2.micro"
