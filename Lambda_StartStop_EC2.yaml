@@ -1,19 +1,22 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Lambda function with cfn-response.
 Parameters:
+  LatestAmiId:
+    Description: AMI for EC2
+    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
   instances:
-    Default: i-12345678
-    Description: Instance ID's seperated by commers
-    Type: String
+    Description: List of EC2 Image IDs
+    Type: 'List<AWS::EC2::Image::Id>'
   Region:
     Description: region only 1 region supported
     Type: String
   StopScheduled:
-    Default: cron(0 18 ? * MON-FRI *)
+    Default: cron(40 20 * * ? *)
     Description: enter an Schedule expression example cron(0 18 ? * MON-FRI *) see https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
     Type: String
   StartScheduled:
-    Default: cron(0 7 ? * MON-FRI *)
+    Default: cron(30 20 * * ? *)
     Description: enter an Schedule expression example cron(0 7 ? * MON-FRI * ) see https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
     Type: String
 Resources:
