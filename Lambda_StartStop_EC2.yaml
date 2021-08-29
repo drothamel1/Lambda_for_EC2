@@ -20,6 +20,44 @@ Parameters:
     Description: enter an Schedule expression example cron(0 7 ? * MON-FRI * ) see https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
     Type: String
 Resources:
+  InstanceSecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: Enable SSH and HTTP access via port 22 IPv4 & port 80 IPv4
+      SecurityGroupIngress:
+        - Description: 'Allow SSH IPv4 IN'
+          IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: '0.0.0.0/0'
+        - Description: 'Allow HTTP IPv4 IN'
+          IpProtocol: tcp
+          FromPort: '80'
+          ToPort: '80'
+          CidrIp: '0.0.0.0/0'
+    MyEC2Intance:
+      Type: 'AWS::EC2::Instance'
+      Properties:
+        InstanceType: "t2.micro"
+        ImageId: !Ref "LatestAmiId"
+        KeyName: 'drothamel'
+        SecurityGroupIds:
+          - !Ref InstanceSecurityGroup
+        Tags:
+          - Key: Name
+            Value: Lambda Test
+    AnotherEC2Instance:
+      Type: 'AWS::EC2::Instance'
+      Properties:
+        InstanceType: "t2.micro"
+        ImageId: !Ref "LatestAmiId"
+        KeyName: 'drothamel'
+        SecurityGroupIds:
+          - !Ref InstanceSecurityGroup
+        Tags:
+          - Key: Name
+            Value: Lambda Test 2
+
   StopEC2Instances:
     Type: AWS::Lambda::Function
     Properties:
