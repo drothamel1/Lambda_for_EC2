@@ -3,18 +3,18 @@ Description: Lambda function with cfn-response.
 Parameters:
   instances:
     Default: i-0487cb53d59db82e2,i-0d856a1d79f5e3d76
-    Description: Instance ID's seperated by commers
+    Description: Instance ID's seperated by commas
     Type: String
   Region:
     Default: us-east-1
     Description: region only 1 region supported
     Type: String
   StopScheduled:
-    Default: cron(58 13 30 AUG ? 2021)
+    Default: cron(17 15 30 AUG ? 2021)
     Description: enter an Schedule expression example cron(0 18 ? * MON-FRI *) see https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
     Type: String
   StartScheduled:
-    Default: cron(40 13 31 AUG ? 2021)
+    Default: cron(15 15 30 AUG ? 2021)
     Description: enter an Schedule expression example cron(0 7 ? * MON-FRI * ) see https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
     Type: String
 Resources:
