@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: Lambda function with cfn-response.
 Parameters:
   instances:
-    Default: i-0487cb53d59db82e2,i-0d856a1d79f5e3d76
+    Default: i-IDNUMBERHERE,i-IDNUMBERHERE
     Description: Instance ID's seperated by commas
     Type: String
   Region:
