@@ -6,14 +6,15 @@ Parameters:
     Description: Instance ID's seperated by commers
     Type: String
   Region:
+    Default: us-east-1
     Description: region only 1 region supported
     Type: String
   StopScheduled:
-    Default: cron(45 13 ? * MON-FRI *)
+    Default: cron(58 13 30 AUG ? 2021)
     Description: enter an Schedule expression example cron(0 18 ? * MON-FRI *) see https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
     Type: String
   StartScheduled:
-    Default: cron(40 13 ? * MON-FRI *)
+    Default: cron(40 13 31 AUG ? 2021)
     Description: enter an Schedule expression example cron(0 7 ? * MON-FRI * ) see https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
     Type: String
 Resources:
@@ -122,8 +123,6 @@ Resources:
                 - "ec2:StartInstances"
                 - "ec2:StopInstances"
                 Resource: '*'
-
-
   StopScheduledRule:
     Type: AWS::Events::Rule
     Properties:
