@@ -10,12 +10,12 @@ Parameters:
     Description: region only 1 region supported
     Type: String
   StopScheduled:
-    Default: cron(17 15 30 AUG ? 2021)
-    Description: enter an Schedule expression example cron(0 18 ? * MON-FRI *) see https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
+    Default: cron(52 15 30 AUG ? 2021)
+    Description: enter a Schedule expression example cron(0 18 ? * MON-FRI *) see https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
     Type: String
   StartScheduled:
-    Default: cron(15 15 30 AUG ? 2021)
-    Description: enter an Schedule expression example cron(0 7 ? * MON-FRI * ) see https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
+    Default: cron(50 15 30 AUG ? 2021)
+    Description: enter a Schedule expression example cron(0 7 ? * MON-FRI * ) see https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
     Type: String
 Resources:
   StopEC2Instances:
